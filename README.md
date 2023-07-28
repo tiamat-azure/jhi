@@ -30,7 +30,7 @@ Before you can build this project, you must install and configure the following 
 After installing Node, you should be able to run the following command to install development tools.
 You will only need to run this command when dependencies change in [package.json](package.json).
 
-```
+```bash
 npm install
 ```
 
@@ -39,7 +39,7 @@ We use npm scripts and [Angular CLI][] with [Webpack][] as our build system.
 Run the following commands in two separate terminals to create a blissful development experience where your browser
 auto-refreshes when files change on your hard drive.
 
-```
+```bash
 ./gradlew -x webapp
 npm start
 ```
@@ -64,26 +64,26 @@ ServiceWorkerModule.register('ngsw-worker.js', { enabled: false }),
 
 For example, to add [Leaflet][] library as a runtime dependency of your application, you would run following command:
 
-```
+```bash
 npm install --save --save-exact leaflet
 ```
 
 To benefit from TypeScript type definitions from [DefinitelyTyped][] repository in development, you would run following command:
 
-```
+```bash
 npm install --save-dev --save-exact @types/leaflet
 ```
 
 Then you would import the JS and CSS files specified in library's installation instructions so that [Webpack][] knows about them:
 Edit [src/main/webapp/app/app.module.ts](src/main/webapp/app/app.module.ts) file:
 
-```
+```typescript
 import 'leaflet/dist/leaflet.js';
 ```
 
 Edit [src/main/webapp/content/scss/vendor.scss](src/main/webapp/content/scss/vendor.scss) file:
 
-```
+```css
 @import '~leaflet/dist/leaflet.css';
 ```
 
@@ -97,13 +97,13 @@ You can also use [Angular CLI][] to generate some custom client code.
 
 For example, the following command:
 
-```
+```bash
 ng generate component my-component
 ```
 
 will generate few files:
 
-```
+```bash
 create src/main/webapp/app/my-component/my-component.component.html
 create src/main/webapp/app/my-component/my-component.component.ts
 update src/main/webapp/app/app.module.ts
@@ -111,9 +111,9 @@ update src/main/webapp/app/app.module.ts
 
 ### JHipster Control Center
 
-JHipster Control Center can help you manage and control your application(s). You can start a local control center server (accessible on http://localhost:7419) with:
+JHipster Control Center can help you manage and control your application(s). You can start a local control center server (accessible on <http://localhost:7419>) with:
 
-```
+```bash
 docker-compose -f src/main/docker/jhipster-control-center.yml up
 ```
 
@@ -123,14 +123,14 @@ docker-compose -f src/main/docker/jhipster-control-center.yml up
 
 To build the final jar and optimize the jhi application for production, run:
 
-```
+```bash
 ./gradlew -Pprod clean bootJar
 ```
 
 This will concatenate and minify the client CSS and JavaScript files. It will also modify `index.html` so it references these new files.
 To ensure everything worked, run:
 
-```
+```bash
 java -jar build/libs/*.jar
 ```
 
@@ -142,7 +142,7 @@ Refer to [Using JHipster in production][] for more details.
 
 To package your application as a war in order to deploy it to an application server, run:
 
-```
+```bash
 ./gradlew -Pprod -Pwar clean bootWar
 ```
 
@@ -150,7 +150,7 @@ To package your application as a war in order to deploy it to an application ser
 
 To launch your application's tests, run:
 
-```
+```bash
 ./gradlew test integrationTest jacocoTestReport
 ```
 
@@ -158,7 +158,7 @@ To launch your application's tests, run:
 
 Unit tests are run by [Jest][]. They're located in [src/test/javascript/](src/test/javascript/) and can be run with:
 
-```
+```bash
 npm test
 ```
 
@@ -166,9 +166,9 @@ For more information, refer to the [Running tests page][].
 
 ### Code quality
 
-Sonar is used to analyse code quality. You can start a local Sonar server (accessible on http://localhost:9001) with:
+Sonar is used to analyse code quality. You can start a local Sonar server (accessible on <http://localhost:9001>) with:
 
-```
+```bash
 docker-compose -f src/main/docker/sonar.yml up -d
 ```
 
@@ -178,7 +178,7 @@ You can run a Sonar analysis with using the [sonar-scanner](https://docs.sonarqu
 
 Then, run a Sonar analysis:
 
-```
+```bash
 ./gradlew -Pprod clean check jacocoTestReport sonarqube
 ```
 
@@ -190,32 +190,32 @@ You can use Docker to improve your JHipster development experience. A number of 
 
 For example, to start a postgresql database in a docker container, run:
 
-```
+```bash
 docker-compose -f src/main/docker/postgresql.yml up -d
 ```
 
 To stop it and remove the container, run:
 
-```
+```bash
 docker-compose -f src/main/docker/postgresql.yml down
 ```
 
 You can also fully dockerize your application and all the services that it depends on.
 To achieve this, first build a docker image of your app by running:
 
-```
+```bash
 npm run java:docker
 ```
 
 Or build a arm64 docker image when using an arm64 processor os like MacOS with M1 processor family running:
 
-```
+```bash
 npm run java:docker:arm64
 ```
 
 Then run:
 
-```
+```bash
 docker-compose -f src/main/docker/app.yml up -d
 ```
 
@@ -227,8 +227,6 @@ For more information refer to [Using Docker and Docker-Compose][], this page als
 
 To configure CI for your project, run the ci-cd sub-generator (`jhipster ci-cd`), this will let you generate configuration files for a number of Continuous Integration systems. Consult the [Setting up Continuous Integration][] page for more information.
 
-[jhipster homepage and latest documentation]: https://www.jhipster.tech
-[jhipster 7.9.3 archive]: https://www.jhipster.tech/documentation-archive/v7.9.3
 [using jhipster in development]: https://www.jhipster.tech/documentation-archive/v7.9.3/development/
 [using docker and docker-compose]: https://www.jhipster.tech/documentation-archive/v7.9.3/docker-compose
 [using jhipster in production]: https://www.jhipster.tech/documentation-archive/v7.9.3/production/
@@ -236,9 +234,7 @@ To configure CI for your project, run the ci-cd sub-generator (`jhipster ci-cd`)
 [code quality page]: https://www.jhipster.tech/documentation-archive/v7.9.3/code-quality/
 [setting up continuous integration]: https://www.jhipster.tech/documentation-archive/v7.9.3/setting-up-ci/
 [node.js]: https://nodejs.org/
-[npm]: https://www.npmjs.com/
 [webpack]: https://webpack.github.io/
-[browsersync]: https://www.browsersync.io/
 [jest]: https://facebook.github.io/jest/
 [leaflet]: https://leafletjs.com/
 [definitelytyped]: https://definitelytyped.org/

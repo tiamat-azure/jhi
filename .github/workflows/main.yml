@@ -45,6 +45,10 @@ jobs:
           DOCKER_TAG=${GIT_TAG#refs/heads/}
           echo "GIT_TAG=$GIT_TAG"
           echo "DOCKER_TAG=$DOCKER_TAG"
+          if [[ "$DOCKER_TAG" == "master" || "$DOCKER_TAG" == "main" ]]; then
+            DOCKER_TAG="latest"
+          fi
+          echo "DOCKER_TAG=$DOCKER_TAG"
           ./gradlew jib \
           -Djib.to.image=tiamatz/jhi:${DOCKER_TAG} \
           -Djib.to.auth.username="${{ secrets.DOCKER_USERNAME }}" -Djib.to.auth.password="${{ secrets.DOCKER_PASSWORD }}" \

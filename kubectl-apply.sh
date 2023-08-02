@@ -20,6 +20,10 @@ exit 0
 
 logSummary() {
     echo ""
+        echo "#####################################################"
+        echo "Please find the below useful endpoints,"
+        echo "jhi - http://jhi.default.opt.nc"
+        echo "#####################################################"
 }
 
 default() {

@@ -6,6 +6,7 @@ resources:
   - jhi-k8s/jhi-deployment.yml
   - jhi-k8s/jhi-service.yml
   - jhi-k8s/jhi-postgresql.yml
+  - jhi-k8s/jhi-ingress.yml
   - jhi-k8s/jwt-secret.yml
 # service discovery eureka/consul
 

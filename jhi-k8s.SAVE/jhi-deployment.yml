@@ -46,7 +46,8 @@ spec:
               done
       containers:
         - name: jhi-app
-          image: tiamatz/jhi
+          image: tiamatz/jhi:v1.0.0
+          #image: hello-world
           env:
             - name: SPRING_PROFILES_ACTIVE
               value: prod
